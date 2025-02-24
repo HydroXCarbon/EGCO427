@@ -11,8 +11,6 @@
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
     <br /><br />
-    <router-link to="/hello">Hello World!</router-link> &nbsp | &nbsp;
-    <router-link to="/home">Home</router-link>
   </div>
   <router-view />
 </template>
