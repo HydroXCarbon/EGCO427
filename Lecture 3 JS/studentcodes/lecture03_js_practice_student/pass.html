@@ -1,0 +1,26 @@
+<html>
+	
+<head>
+	<script type = "text/javascript">
+
+		function showInfo(user, pass){
+			alert("Username: " + user + "    Password: " + pass);
+		}
+
+	</script>
+</head>
+<body>
+	<form>
+		<p>Username: 
+		  	<input type="text" id="user" name="username"/>
+		</p>
+		<p>Password 
+			<input type="password" id="pass" name="password"/>
+		</p>
+		<p>
+			<input type="button" id="submit" name="submit" value="Submit" onclick = "showInfo(user.value, pass.value)"/>
+			<input type="button" id="cancel" name="cancel" value="Cancel"/>
+		</p>
+	</form>
+</body>	
+</html>
