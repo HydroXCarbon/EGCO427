@@ -1,9 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 
-defineProps({
-  msg: String,
-})
+var name = 'Vue3'
 
 const count = ref(0)
 </script>
@@ -13,6 +11,7 @@ const count = ref(0)
 
   <div class="card">
     <button type="button" @click="count++">count is {{ count }}</button>
+    {{ name }}
     <p>
       Edit
       <code>components/HelloWorld.vue</code> to test HMR
