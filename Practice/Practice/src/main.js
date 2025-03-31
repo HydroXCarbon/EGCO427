@@ -1,13 +1,11 @@
-import { createApp } from "vue";
-import "./style.css";
-import App from "./App.vue";
-import router from "./router";
-
-import { initializeApp } from "firebase/app";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
-
-import "bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
+import { createApp } from 'vue'
+import App from './App.vue'
+import router from './router'
+import './style.css'
+import 'bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import { initializeApp } from 'firebase/app'
+import { getAuth, onAuthStateChanged } from 'firebase/auth'
 
 let auth;
 let app;
@@ -19,7 +17,8 @@ const firebaseConfig = {
   storageBucket: "egco427-a991d.firebasestorage.app",
   messagingSenderId: "284064165938",
   appId: "1:284064165938:web:914fbea86b9c8ef03a0c2b",
-  measurementId: "G-ESPXLD8663"
+  measurementId: "G-ESPXLD8663",
+  databaseURL: "https://cities.firebaseio.com",
 };
 
 // Initialize Firebase
@@ -32,5 +31,3 @@ onAuthStateChanged(auth, () => {
     app = createApp(App).use(router).mount("#app");
   }
 });
-
-createApp(App).use(router).mount("#app");

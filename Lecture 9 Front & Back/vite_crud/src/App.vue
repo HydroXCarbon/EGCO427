@@ -1,9 +1,16 @@
 <script>
+import { getAuth, signOut } from 'firebase/auth';
+
 export default {
   name: 'App',
   methods: {
     logout() {
-      console.log('logout');
+      const auth = getAuth();
+      signOut(auth).then(() => {
+        this.$router.push('/signin');
+      }).catch((error) => {
+        console.log(error);
+      });
     }
   }
 }
@@ -12,7 +19,7 @@ export default {
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="users">Users</router-link>
+      <router-link to="users">Users</router-link> |
       <button class="btn btn-success btn-block full-width" @click="logout">Logout</button>
     </div>
     <router-view />

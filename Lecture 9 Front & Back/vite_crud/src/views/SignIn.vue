@@ -17,6 +17,8 @@
 </template>
 
 <script>
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+
 export default {
   name: 'SignIn',
   data() {
@@ -24,12 +26,28 @@ export default {
       formData: {
         email: '',
         password: ''
-      }
+      },
+      errorMessages: '',
+      successMessage: '',
+      xhrRequest: false
     }
   },
   methods: {
     signIn() {
-      console.log(this.formData);
+      const auth = getAuth();
+      signInWithEmailAndPassword(auth, this.formData.email, this.formData.password)
+        .then((user) => {
+          this.successMessage = 'User signed in successfully';
+          this.errorMessages = '';
+          this.formData.email = '';
+          this.formData.password = '';
+          this.$router.push('/users');
+        })
+        .catch((error) => {
+          this.errorMessages = error.message;
+          alert(error.message);
+          this.successMessage = '';
+        });
     }
   }
 }
